@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  work_hour_budget: 1.5
+  start_time: 2014-03-17
+  end_time: 2014-03-17
+
+two:
+  name: MyString
+  work_hour_budget: 1.5
+  start_time: 2014-03-17
+  end_time: 2014-03-17
