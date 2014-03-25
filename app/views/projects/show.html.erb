@@ -20,5 +20,25 @@
   <%= @project.end_time %>
 </p>
 
+<p>
+  <strong>Projects tasks</strong>
+  <table class="table table-hover">
+    <thead>
+        <tr>
+          <td>Task name</td>
+          <td>Work hour budget</td>
+        </tr>
+    </thead>
+  <% @tasks.each do |task| %>
+  <tbody>
+      <tr>
+        <td><%= task.name %></td>
+        <td><%= task.hour_budget %></td>
+      </tr>
+  </tbody>
+  <% end %>
+  </table>
+</p>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

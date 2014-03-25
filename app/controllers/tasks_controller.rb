@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  before_action :set_project, only:[:new,:edit]
 
   # GET /tasks
   # GET /tasks.json
@@ -15,6 +16,7 @@ class TasksController < ApplicationController
   # GET /tasks/new
   def new
     @task = Task.new
+
   end
 
   # GET /tasks/1/edit
@@ -71,4 +73,8 @@ class TasksController < ApplicationController
     def task_params
       params.require(:task).permit(:name, :hour_budget, :project_id)
     end
+
+  def set_project
+    @projects = Project.all
+  end
 end
