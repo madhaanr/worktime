@@ -5,8 +5,12 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by username: params[:username]
-    session[:user_id] = user.id unless user.nil?
-    redirect_to user
+    if user.nil? or not user.authenticate params[:password]
+      redirect_to :back, notice: "Username and/or password mismatch"
+    else
+      session[:user_id] = user.id
+      redirect_to :root
+    end
   end
 
   def destroy
