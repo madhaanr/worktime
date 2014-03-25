@@ -2,10 +2,13 @@ Worktime::Application.routes.draw do
   resources :user_projects
 
   resources :users
+  get 'signup', to:'users#new'
 
   resources :tasks
 
   resources :projects
+
+  resources :sessions, only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
