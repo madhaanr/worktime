@@ -12,14 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
+    <%= f.label :user %><br>
+    <%= f.select :user_id, options_from_collection_for_select(@users, :id, :username, selected: @user_project.user_id) %>
   </div>
   <div class="field">
-    <%= f.label :project_id %><br>
-    <%= f.text_field :project_id %>
+    <%= f.label :project %><br>
+    <%= f.select :project_id, options_from_collection_for_select(@projects, :id, :name, selected: @user_project.project_id) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class:"btn btn-primary" %>
   </div>
 <% end %>

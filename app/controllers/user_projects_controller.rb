@@ -1,6 +1,6 @@
 class UserProjectsController < ApplicationController
   before_action :set_user_project, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_projects_and_users, only:[:new,:edit]
   # GET /user_projects
   # GET /user_projects.json
   def index
@@ -70,5 +70,10 @@ class UserProjectsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_project_params
       params.require(:user_project).permit(:user_id, :project_id)
+    end
+
+    def set_projects_and_users
+      @users = User.all
+      @projects = Project.all
     end
 end
