@@ -11,6 +11,7 @@ end
 
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
+
 group :development do
   gem 'rails_layout'
 end
