@@ -1,4 +1,6 @@
 Worktime::Application.routes.draw do
+  resources :entries
+
   resources :user_projects
 
   resources :users
