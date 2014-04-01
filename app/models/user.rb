@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
   validates :password, presence: true,
                        length: {minimum: 4},
                        format: {with:/[A-Z]+/, with:/[0-9]+/}
+
   has_many :user_projects
   has_many :projects, through: :user_projects
+  has_many :entries, through: :user_projects
 end

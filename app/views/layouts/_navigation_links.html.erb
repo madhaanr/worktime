@@ -2,7 +2,9 @@
 <li><%= link_to 'projects', projects_path %></li>
 <li><%= link_to 'tasks', tasks_path %></li>
 <li><%= link_to 'users', users_path %></li>
+<li><%= link_to 'view entries', entries_path %></li>
 <% if not current_user.nil? %>
+    <li><%= link_to 'create entry', new_entry_path %></li>
     <li><%= link_to 'join user to project', user_projects_path %></li>
     <li><%= link_to 'signout', signout_path, method: :delete %></li>
 <% else %>
