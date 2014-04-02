@@ -9,4 +9,10 @@ class ApplicationController < ActionController::Base
     return nil if session[:user_id].nil?
     User.find(session[:user_id])
   end
+
+  def verify_is_admin
+    return nil if current.user.nil?
+    redirect_to entries_path unless current_user.admin?
+  end
+
 end

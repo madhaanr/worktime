@@ -10,7 +10,6 @@
     <th>Description</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
   </thead>
   <tbody>
@@ -25,26 +24,6 @@
       </tr>
   </tbody>
 </table>
-<p>
-  <strong>Task:</strong>
-  <%= @entry.task.name %>
-</p>
-<p>
-  <strong>Date when done:</strong>
-  <%= @entry.date_when_done %>
-</p>
-
-<p>
-  <strong>Hours done:</strong>
-  <%= @entry.hours_done %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @entry.description %>
-</p>
-
-
 
 <%= link_to 'Edit', edit_entry_path(@entry) %> |
 <%= link_to 'Back', entries_path %>

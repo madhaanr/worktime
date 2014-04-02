@@ -75,6 +75,8 @@ class EntriesController < ApplicationController
     end
 
     def set_tasks
-      @tasks = Task.all
+      #byebug
+      @tasks=Task.select{ |t| t.project.users.include?(current_user)}
+      #@tasks = Task.all.reject{ |t| t.user_projects.nil? current_user }
     end
 end
