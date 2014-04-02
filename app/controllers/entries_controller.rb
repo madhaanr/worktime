@@ -1,5 +1,6 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_tasks, only:[:new,:edit]
 
   # GET /entries
   # GET /entries.json
@@ -25,7 +26,8 @@ class EntriesController < ApplicationController
   # POST /entries.json
   def create
     @entry = Entry.new(entry_params)
-
+    @entry.user_project = UserProject.where(project_id: Task.find(entry_params[:task_id]).project_id, user_id: current_user.id).first
+    #byebug
     respond_to do |format|
       if @entry.save
         format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
@@ -70,5 +72,9 @@ class EntriesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
       params.require(:entry).permit(:date_when_done, :hours_done, :description, :user_project_id, :task_id)
+    end
+
+    def set_tasks
+      @tasks = Task.all
     end
 end

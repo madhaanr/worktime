@@ -3,10 +3,11 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Date when done</th>
+      <th>Project</th>
+      <th>Task</th>
+      <th>Date</th>
       <th>Hours done</th>
       <th>Description</th>
-      <th>Task</th>
       <th></th>
       <th></th>
       <th></th>
@@ -16,10 +17,11 @@
   <tbody>
     <% @entries.each do |entry| %>
       <tr>
+        <td><%= entry.project.name %></td>
+        <td><%= entry.task.name %></td>
         <td><%= entry.date_when_done %></td>
         <td><%= entry.hours_done %></td>
         <td><%= entry.description %></td>
-        <td><%= entry.task_id %></td>
         <td><%= link_to 'Show', entry %></td>
         <td><%= link_to 'Edit', edit_entry_path(entry) %></td>
         <td><%= link_to 'Destroy', entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
