@@ -2,6 +2,7 @@ class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
   before_action :set_tasks, only:[:new,:edit]
 
+
   # GET /entries
   # GET /entries.json
   def index
