@@ -154,12 +154,18 @@
       ],
       "/cs/fs2/home/mhaanran/RubyProjects/worktime/spec/factories.rb": [
         1,
+        null,
         1,
         1,
         1,
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        1,
+        1,
         null,
         null
       ],
@@ -261,10 +267,78 @@
         1,
         null
       ],
+      "/cs/fs2/home/mhaanran/RubyProjects/worktime/app/models/entry.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/cs/fs2/home/mhaanran/RubyProjects/worktime/spec/models/project_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        null,
+        1,
+        1,
+        null,
+        null
+      ],
       "/cs/fs2/home/mhaanran/RubyProjects/worktime/app/models/project.rb": [
         1,
         1,
         null,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/cs/fs2/home/mhaanran/RubyProjects/worktime/spec/models/task_spec.rb": [
+        1,
+        null,
+        1,
+        2,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null,
+        null
+      ],
+      "/cs/fs2/home/mhaanran/RubyProjects/worktime/app/models/task.rb": [
+        1,
+        1,
+        null,
+        1,
+        1,
+        null
+      ],
+      "/cs/fs2/home/mhaanran/RubyProjects/worktime/spec/models/user_project_spec.rb": [
+        1,
+        null,
+        1,
+        null,
+        null
+      ],
+      "/cs/fs2/home/mhaanran/RubyProjects/worktime/app/models/user_project.rb": [
         1,
         1,
         1,
@@ -341,6 +415,6 @@
         null
       ]
     },
-    "timestamp": 1396591238
+    "timestamp": 1396593654
   }
 }
