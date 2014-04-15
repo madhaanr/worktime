@@ -12,4 +12,16 @@ FactoryGirl.define do
     hour_budget 5
     project_id 1
   end
+
+  factory :user do
+    username "Arto"
+    password "1QWE"
+    password_confirmation "1QWE"
+  end
+
+  factory :user2, class: UserProject do
+    username "Martta"
+    password "1QWErty"
+    password_confirmation "1QWErty"
+  end
 end
