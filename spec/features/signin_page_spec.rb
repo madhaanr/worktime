@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe 'Signin' do
   let(:user){ FactoryGirl.create(:user) }
-  let(:user2){ FactoryGirl.create(:user2) }
   let(:user3){ FactoryGirl.create(:user3) }
 
   it 'can be done with valid username and password' do
@@ -21,6 +20,7 @@ describe 'Signin' do
   it "can't be done with invalid username" do
     visit signin_path
 
+    expect(user.valid?).to be(true)
     fill_in('username', with:'Art')
     fill_in('password', with:'1QWE')
     click_button "Log in"
@@ -31,6 +31,7 @@ describe 'Signin' do
    it "can't be done with invalid password" do
     visit signin_path
 
+    expect(user.valid?).to be(true)
     fill_in('username', with:'Arto')
     fill_in('password', with:'1QWEr')
     click_button "Log in"
