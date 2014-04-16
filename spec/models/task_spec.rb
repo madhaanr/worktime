@@ -10,8 +10,8 @@ describe Task do
 
   it "can't be saved with too short name" do
     task = Task.create name: "W2"
+
     expect(task.valid?).to be(false)
     expect(Task.count).to eq(0)
   end
-
 end
