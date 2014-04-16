@@ -19,9 +19,17 @@ FactoryGirl.define do
     password_confirmation "1QWE"
   end
 
-  factory :user2, class: UserProject do
+  factory :user2, class: User do
     username "Martta"
     password "1QWErty"
     password_confirmation "1QWErty"
   end
+
+  factory :user3, class: User do
+    username "Marko"
+    password "1QWErty"
+    password_confirmation "1QWErty"
+    admin 'true'
+  end
+
 end
