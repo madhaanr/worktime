@@ -25,6 +25,7 @@ describe 'Signin' do
     fill_in('password', with:'1QWE')
     click_button "Log in"
 
+    expect(current_path).to eq(signin_path)
     expect(page).to have_content 'Username and/or password mismatch'
   end
 
@@ -36,6 +37,7 @@ describe 'Signin' do
     fill_in('password', with:'1QWEr')
     click_button "Log in"
 
+    expect(current_path).to eq(signin_path)
     expect(page).to have_content 'Username and/or password mismatch'
   end
 
