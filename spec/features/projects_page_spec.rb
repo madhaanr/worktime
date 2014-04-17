@@ -2,7 +2,6 @@ require 'spec_helper'
 include OwnTestHelper
 
 describe "Projects page" do
- # let(:user){ FactoryGirl.create(:user) }
 
   it "should not have any before been created" do
     visit projects_path
@@ -20,7 +19,6 @@ describe "Projects page" do
 
   it "prints error if you try to create project without being signed in" do
     visit projects_path
-
     click_link 'New Project'
     expect(page).to have_content 'you should be signed in'
 
@@ -28,12 +26,7 @@ describe "Projects page" do
 
   it "prints error if user who is not admin tries to create project" do
     FactoryGirl.create(:user)
-    visit signin_path
-    fill_in('username', with:'Arto')
-    fill_in('password', with:'1QWE')
-    click_button('Log in')
-    #sign_in(username: "Martta", password:"1QWErty")
-
+    sign_in(username:"Arto",password:"1QWE")
     visit projects_path
     #save_and_open_page
     click_link 'New Project'
@@ -42,12 +35,7 @@ describe "Projects page" do
 
   it "admin can create projects" do
     FactoryGirl.create(:user3)
-    visit signin_path
-    fill_in('username', with:'Marko')
-    fill_in('password', with:'1QWErty')
-    click_button('Log in')
-    #sign_in(username: "Martta", password:"1QWErty")
-
+    sign_in(username:"Marko",password:"1QWErty")
     visit projects_path
     #save_and_open_page
     click_link 'New Project'
