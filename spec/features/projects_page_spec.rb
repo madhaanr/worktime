@@ -3,7 +3,7 @@ include OwnTestHelper
 
 describe "Projects page" do
 
-  it "should not have any before been created" do
+  it "should not have any projects before been created" do
     visit projects_path
     expect(page).to have_content 'Listing projects'
     expect(page).not_to have_content 'Destroy'
@@ -33,7 +33,7 @@ describe "Projects page" do
     expect(page).to have_content 'operation permitted only for admin users'
   end
 
-  it "admin can create projects" do
+  it "can be used to create projects" do
     FactoryGirl.create(:user3)
     sign_in(username:"Marko",password:"1QWErty")
     visit projects_path
@@ -46,5 +46,7 @@ describe "Projects page" do
     expect(page).to have_content 10
     expect(Project.count).to eq(1)
   end
+
+  it "can be used to delete projects"
 
 end

@@ -1,4 +1,5 @@
 require 'spec_helper'
+include OwnTestHelper
 
 describe 'Signin' do
   let!(:user){ FactoryGirl.create(:user) }
@@ -26,5 +27,21 @@ describe 'Signin' do
     sign_in(username:"Marko",password:"1QWErty")
     expect(page).to have_content 'Marko'
     expect(page).to have_content 'Listing projects'
+  end
+
+  it 'and signout can be done with normal user' do
+    sign_in(username:"Arto",password:"1QWE")
+    expect(page).to have_content "signout"
+    click_link "signout"
+    expect(page).to_not have_content "signout"
+    expect(page).to have_content "signin"
+  end
+
+  it 'and signout can be done with admin user' do
+    sign_in(username:"Marko",password:"1QWErty")
+    expect(page).to have_content "signout"
+    click_link "signout"
+    expect(page).to_not have_content "signout"
+    expect(page).to have_content "signin"
   end
 end

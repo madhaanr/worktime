@@ -21,6 +21,8 @@ group :production do
   gem 'rails_12factor'
 end
 
+gem 'can_has_validations'
+
 #debugger
 gem 'byebug', group: [:development, :test]
 

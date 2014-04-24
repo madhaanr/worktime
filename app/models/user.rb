@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
   has_secure_password
 
   validates :username, uniqueness: true,
-                       length: {minimum: 3}
+                       length: {minimum: 3},
+                       write_once: true
   validates :password, presence: true,
                        length: {minimum: 4},
                        format: {with:/[A-Z]+/, with:/[0-9]+/}
