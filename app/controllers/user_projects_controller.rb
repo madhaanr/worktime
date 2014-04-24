@@ -75,6 +75,7 @@ class UserProjectsController < ApplicationController
     end
 
     def set_projects_and_users
+      # @tasks=Task.select{ |t| t.project.users.include?(current_user)}
       @users = User.all
       @projects = Project.all
     end

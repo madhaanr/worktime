@@ -8,7 +8,6 @@ describe 'Join user to project' do
 
   it 'can be done when user is normal' do
     sign_in(username:"Marko", password:"1QWErty")
-
     visit user_projects_path
     #save_and_open_page
     click_link "New User project"
@@ -21,7 +20,6 @@ describe 'Join user to project' do
 
   it 'can be done when user is admin' do
     sign_in(username:"Marko", password:"1QWErty")
-
     visit user_projects_path
     click_link "New User project"
     select('Marko', from:'user_project[user_id]')
@@ -33,7 +31,6 @@ describe 'Join user to project' do
 
   it "can be removed" do
     sign_in(username:"Marko", password:"1QWErty")
-
     visit user_projects_path
     click_link "New User project"
     select('Marko', from:'user_project[user_id]')
@@ -41,13 +38,11 @@ describe 'Join user to project' do
     click_button "Create User project"
     visit user_projects_path
     click_link "Destroy"
-
     expect(page).not_to have_content "Work time"
   end
 
   it "can be updated" do
     sign_in(username:'Marko', password:'1QWErty')
-
     visit user_projects_path
     click_link "New User project"
     select('Marko', from:'user_project[user_id]')
@@ -56,9 +51,25 @@ describe 'Join user to project' do
     visit user_projects_path
     click_link "Edit"
     click_button "Update User project"
-
     expect(page).to have_content "User project was successfully updated."
   end
+
+=begin
+  it "can't be added if user has allready been added to project" do
+    sign_in(username:"Marko", password:"1QWErty")
+    visit user_projects_path
+    click_link "New User project"
+    select('Marko', from:'user_project[user_id]')
+    select('Work time', from:'user_project[project_id]')
+    click_button "Create User project"
+    visit user_projects_path
+    click_link "New User project"
+    select('Marko', from:'user_project[user_id]')
+    select('Work time', from:'user_project[project_id]')
+    click_button "Create User project"
+    expect(page).to have_content "User project allready exists"
+  end
+=end
 
   #add test that tests adding allready existing user_id and project_id
   #add test that tests editing user_project to use existing user_id or project_id
