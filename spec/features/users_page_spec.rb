@@ -1,10 +1,10 @@
 require 'spec_helper'
 include OwnTestHelper
 
-describe 'User' do
+describe 'User page' do
   let!(:user3){ FactoryGirl.create(:user3) }
 
-  it "can be shown" do
+  it "show option works" do
     sign_in(username:"Marko",password:"1QWErty")
     click_link "users"
     expect(page).to have_content "Listing users"
@@ -14,7 +14,7 @@ describe 'User' do
     expect(page).to have_content "Edit | Back"
   end
 
-  it "password can be changed" do
+  it "can be used to edit password" do
     sign_in(username:"Marko",password:"1QWErty")
     click_link "users"
     expect(page).to have_content "Listing users"
@@ -28,7 +28,7 @@ describe 'User' do
     expect(page).to have_content "Username: Marko"
   end
 
-  it "username can't be changed" do
+  it "can't be used to edit username" do
     sign_in(username:"Marko",password:"1QWErty")
     click_link "users"
     expect(page).to have_content "Listing users"
@@ -42,13 +42,13 @@ describe 'User' do
     expect(page).to have_content "Username cannot be changed"
   end
 
-  it "can be destroyed" do
+  it "can be used to destroy user" do
     FactoryGirl.create(:user)
     sign_in(username:"Marko",password:"1QWErty")
     click_link "users"
     expect(page).to have_content "Listing users"
     expect(page).to have_content "Arto"
-    save_and_open_page
+    #save_and_open_page
     find("table tbody tr:last-child td:last-child a").click
     expect(page).to have_content "Listing users"
     expect(page).to_not have_content "Arto"

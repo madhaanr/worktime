@@ -7,6 +7,13 @@ FactoryGirl.define do
     end_time  Date.new(2014,5,4)
   end
 
+  factory :project2, class: Project do
+    name "Test"
+    work_hour_budget 10
+    start_time Date.new(2013,12,3)
+    end_time  Date.new(2014,5,4)
+  end
+
   factory :task do
     name "Make Coffee"
     hour_budget 5
