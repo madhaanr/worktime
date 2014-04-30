@@ -4,16 +4,6 @@ include OwnTestHelper
 describe 'User page' do
   let!(:user3){ FactoryGirl.create(:user3) }
 
-  it "show option works" do
-    sign_in(username:"Marko",password:"1QWErty")
-    click_link "users"
-    expect(page).to have_content "Listing users"
-    expect(page).to have_content "Marko"
-    click_link "Show"
-    expect(page).to have_content "Username: Marko"
-    expect(page).to have_content "Edit | Back"
-  end
-
   it "can be used to edit password" do
     sign_in(username:"Marko",password:"1QWErty")
     click_link "users"
